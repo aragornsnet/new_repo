@@ -1,0 +1,90 @@
+/* ============================================================
+   IPV - Modo oscuro
+   Se activa con [data-theme="dark"] en <html>
+   ============================================================ */
+
+[data-theme="dark"] {
+    --primary:        #3b82f6;
+    --primary-dark:   #2563eb;
+    --primary-light:  rgba(59,130,246,.15);
+    --secondary:      #60a5fa;
+    --accent:         #fbbf24;
+
+    --success:        #22c55e;
+    --success-light:  rgba(34,197,94,.15);
+    --warning:        #f59e0b;
+    --warning-light:  rgba(245,158,11,.15);
+    --danger:         #ef4444;
+    --danger-light:   rgba(239,68,68,.15);
+    --info:           #38bdf8;
+    --info-light:     rgba(56,189,248,.15);
+
+    --bg:             #0f172a;
+    --surface:        #1e293b;
+    --surface-2:      #334155;
+    --surface-3:      #475569;
+    --border:         #334155;
+    --border-strong:  #475569;
+    --text:           #f1f5f9;
+    --text-muted:     #94a3b8;
+    --text-light:     #64748b;
+
+    --shadow-sm:  0 1px 2px rgba(0,0,0,.3);
+    --shadow-md:  0 4px 6px rgba(0,0,0,.4);
+    --shadow-lg:  0 10px 15px rgba(0,0,0,.5);
+    --shadow-xl:  0 20px 25px rgba(0,0,0,.6);
+}
+
+[data-theme="dark"] body { background: var(--bg); color: var(--text); }
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .sidebar,
+[data-theme="dark"] .header,
+[data-theme="dark"] .modal,
+[data-theme="dark"] .user-dropdown,
+[data-theme="dark"] .toast {
+    background: var(--surface);
+    border-color: var(--border);
+}
+
+[data-theme="dark"] .tabla thead { background: var(--surface-2); }
+[data-theme="dark"] .tabla tbody tr:hover { background: var(--surface-2); }
+
+[data-theme="dark"] .field input,
+[data-theme="dark"] .field select,
+[data-theme="dark"] .field textarea {
+    background: var(--surface-2);
+    color: var(--text);
+    border-color: var(--border-strong);
+}
+
+[data-theme="dark"] .btn-secondary {
+    background: var(--surface-2);
+    color: var(--text);
+    border-color: var(--border-strong);
+}
+[data-theme="dark"] .btn-secondary:hover { background: var(--surface-3); }
+
+[data-theme="dark"] .stat-card { background: var(--surface); }
+[data-theme="dark"] .stat-card:hover { background: var(--surface-2); }
+
+[data-theme="dark"] .nav-item:hover { background: var(--surface-2); }
+[data-theme="dark"] .nav-item.active {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+[data-theme="dark"] pre { background: #020617; }
+
+[data-theme="dark"] ::-webkit-scrollbar-track { background: var(--surface); }
+[data-theme="dark"] ::-webkit-scrollbar-thumb { background: var(--surface-3); }
+
+[data-theme="dark"] .modal-backdrop { background: rgba(0,0,0,.7); }
+[data-theme="dark"] .loading-overlay { background: rgba(15,23,42,.7); }
+
+[data-theme="dark"] .empty-state i { color: var(--surface-3); }
+
+[data-theme="dark"] .skeleton {
+    background: linear-gradient(90deg, var(--surface-2) 25%, var(--surface-3) 50%, var(--surface-2) 75%);
+    background-size: 200% 100%;
+}

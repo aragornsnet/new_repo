@@ -1,0 +1,7 @@
+Restaurado el 2026-09-30 19:39:59
+Origen: backup_2026-09-30_150117.sql
+BD: ipv_db (usuario: ipv_user@localhost)
+URL base: http://10.66.30.2/ipv/
+PHP: 8.4.24
+Tablas restauradas: 31
+Sentencias ejecutadas: 506

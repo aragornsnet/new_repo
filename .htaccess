@@ -1,0 +1,40 @@
+# ============================================================
+# IPV - Reglas de seguridad
+# ============================================================
+
+# Bloquear acceso a carpetas sensibles
+RedirectMatch 403 ^/ipv/storage/.*$
+RedirectMatch 403 ^/ipv/config/.*$
+RedirectMatch 403 ^/ipv/core/.*$
+
+# Bloquear archivos sensibles
+<FilesMatch "\.(sql|log|md|json|lock|ini)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Bloquear archivos ocultos
+<FilesMatch "^\.">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Deshabilitar listado de directorios
+Options -Indexes
+
+# Cabeceras de seguridad
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>

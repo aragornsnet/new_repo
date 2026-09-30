@@ -1,0 +1,22 @@
+# Ignorar todo el contenido
+*
+!.gitignore
+!index.php
+!.htaccess
+
+# Excepto los index.php y .htaccess de subcarpetas
+!backups/.gitignore
+!backups/index.php
+!backups/.htaccess
+!logs/.gitignore
+!logs/index.php
+!logs/.htaccess
+!reportes/.gitignore
+!reportes/index.php
+!reportes/.htaccess
+
+# Ignorar específicos
+*.sql
+*.log
+*.lic
+last_seen.txt

@@ -1,0 +1,10 @@
+# IPV - Bloquear acceso directo a archivos sensibles del instalador
+<FilesMatch "\.(pem|sql|log|lock)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>

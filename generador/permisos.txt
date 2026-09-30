@@ -1,0 +1,30 @@
+--- PERMISOS DE CARPETAS Y ARCHIVOS DE GENERADOR ---
+
+# Cambiar el dueño al usuario del servidor web
+chown www-data:www-data /ruta/al/generador/keys/private.pem
+chmod 640 /ruta/al/generador/keys/private.pem
+
+# Y la carpeta keys
+chown -R www-data:www-data /ruta/al/generador/keys
+chmod 750 /ruta/al/generador/keys
+
+
+--- GENERAR CLAVES PUBLICAS Y PRIVADAS ---
+
+cd /ruta/al/generador/keys
+
+# Borrar las actuales
+rm -f private.pem public.pem
+
+# Generar privada sin contraseña (pulsa Enter cuando pida passphrase)
+openssl genrsa -out private.pem 4096
+
+# Extraer la pública.
+openssl rsa -in private.pem -pubout -out public.pem
+
+# Verificar
+openssl rsa -in private.pem -check -noout
+# Debe decir: RSA key ok
+
+# Copiar la pública al instalador
+cp public.pem /ruta/al/ipv/install/public.pem

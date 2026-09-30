@@ -1,0 +1,307 @@
+/* ============================================================
+   IPV - Formularios
+   ============================================================ */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+}
+.field label .req { color: var(--danger); margin-left: 2px; }
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="password"],
+.field input[type="number"],
+.field input[type="date"],
+.field input[type="datetime-local"],
+.field input[type="time"],
+.field input[type="tel"],
+.field input[type="url"],
+.field input[type="search"],
+.field select,
+.field textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    color: var(--text);
+    font-size: 14px;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.field textarea {
+    resize: vertical;
+    min-height: 90px;
+    font-family: inherit;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+.field input:disabled,
+.field select:disabled,
+.field textarea:disabled {
+    background: var(--surface-2);
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+.field input.error,
+.field select.error,
+.field textarea.error {
+    border-color: var(--danger);
+    box-shadow: 0 0 0 3px var(--danger-light);
+}
+.field input.success {
+    border-color: var(--success);
+}
+
+.field .help {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+.field .error-msg {
+    font-size: 12px;
+    color: var(--danger);
+    display: none;
+    align-items: center;
+    gap: 4px;
+}
+.field.has-error .error-msg { display: flex; }
+
+/* Input group (con ícono o botón) */
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.input-group input { padding-right: 44px; }
+.input-group .input-icon {
+    position: absolute;
+    left: 12px;
+    color: var(--text-light);
+    font-size: 18px;
+    pointer-events: none;
+}
+.input-group.has-icon input { padding-left: 42px; }
+
+.input-group .btn-toggle-pass {
+    position: absolute;
+    right: 6px;
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    padding: 8px 10px;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    font-size: 18px;
+}
+.input-group .btn-toggle-pass:hover {
+    color: var(--primary);
+    background: var(--surface-2);
+}
+
+/* Barra de fortaleza */
+.strength-bar {
+    height: 6px;
+    background: var(--surface-2);
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+    margin-top: 4px;
+}
+.strength-fill {
+    height: 100%;
+    width: 0;
+    transition: width var(--transition-normal), background var(--transition-normal);
+    border-radius: var(--radius-pill);
+}
+.strength-text {
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+/* Requisitos de contraseña */
+.req-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: var(--space-2);
+    font-size: 12px;
+    color: var(--text-muted);
+}
+.req-list li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.req-list li i {
+    font-size: 14px;
+    color: var(--text-light);
+}
+.req-list li.ok { color: var(--success); }
+.req-list li.ok i { color: var(--success); }
+
+/* Mensaje de coincidencia */
+.match-msg {
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 4px;
+    min-height: 16px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.match-msg.ok    { color: var(--success); }
+.match-msg.error { color: var(--danger); }
+
+/* Checkbox y radio personalizados */
+.check {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    cursor: pointer;
+    font-size: 14px;
+    user-select: none;
+}
+.check input[type="checkbox"],
+.check input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--primary);
+    flex-shrink: 0;
+}
+
+/* Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    flex-shrink: 0;
+}
+.switch input { display: none; }
+.switch .slider {
+    position: absolute;
+    inset: 0;
+    background: var(--border-strong);
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+.switch .slider::before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 3px;
+    top: 3px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+}
+.switch input:checked + .slider { background: var(--primary); }
+.switch input:checked + .slider::before { transform: translateX(20px); }
+
+/* Grid de formulario */
+.form-grid {
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.form-grid .span-2 { grid-column: span 2; }
+.form-grid .span-full { grid-column: 1 / -1; }
+@media (max-width: 640px) {
+    .form-grid .span-2 { grid-column: span 1; }
+}
+
+/* Barra de búsqueda */
+.search-bar {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+}
+.search-input {
+    flex: 1;
+    position: relative;
+}
+.search-input input,
+.field .search-input input {
+    width: 100%;
+    padding: 10px 14px 10px 46px !important;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    background: var(--surface);
+    box-sizing: border-box;
+}
+.search-input input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+.search-input i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    font-size: 18px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ---------- Checkbox grande para conteo de denominaciones ---------- */
+.denominacion-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    transition: all var(--transition-fast);
+}
+.denominacion-row:hover {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+.denominacion-row .denom-label {
+    font-weight: 700;
+    font-size: 15px;
+    min-width: 80px;
+    color: var(--text);
+}
+.denominacion-row input[type="number"] {
+    width: 80px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 8px;
+}
+.denominacion-row .denom-subtotal {
+    font-weight: 600;
+    color: var(--primary);
+    margin-left: auto;
+    min-width: 90px;
+    text-align: right;
+}
